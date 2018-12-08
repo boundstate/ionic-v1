@@ -272,20 +272,8 @@ gulp.task('clean', function(done){
 });
 
 gulp.task('preparePackageJson', function(done){
-
-  function createTimestamp() {
-    // YYYYMMDDHHMM
-    var d = new Date();
-    return d.getUTCFullYear() + // YYYY
-           ('0' + (d.getUTCMonth() +　1)).slice(-2) + // MM
-           ('0' + (d.getUTCDate())).slice(-2) + // DD
-           ('0' + (d.getUTCHours())).slice(-2) + // HH
-           ('0' + (d.getUTCMinutes())).slice(-2); // MM
-  }
-
   var existingPackage = require('./package.json');
   existingPackage.name = "@boundstate/ionic-angular";
-  existingPackage.version = existingPackage.version + "-" + createTimestamp();
   delete existingPackage.dependencies;
   delete existingPackage.devDependencies;
   delete existingPackage.config;

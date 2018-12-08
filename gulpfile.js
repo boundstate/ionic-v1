@@ -300,8 +300,13 @@ gulp.task('copyReadme', function(done){
     done();
 });
 
+gulp.task('copySass', function() {
+  return gulp.src('scss/**/*.scss')
+    .pipe(gulp.dest(buildConfig.dist + '/scss'));
+});
+
 gulp.task('prepareForNpm', function(done){
-  runSequence('clean', 'bundle', 'sass', 'preparePackageJson', 'copyReadme', done);
+  runSequence('clean', 'bundle', 'sass', 'preparePackageJson', 'copyReadme', 'copySass', done);
 });
 
 gulp.task("publishToNpm", ['prepareForNpm'], function(done){

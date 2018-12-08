@@ -96,7 +96,7 @@ function makeChangelog(options) {
   var version = options.version || pkg.version;
   var deferred = q.defer();
   changelog({
-    repository: 'https://github.com/ionic-team/ionic',
+    repository: 'https://github.com/boundstate/ionic-v1',
     version: version,
     subtitle: subtitle,
     file: file,
@@ -284,7 +284,7 @@ gulp.task('preparePackageJson', function(done){
   }
 
   var existingPackage = require('./package.json');
-  existingPackage.name = "ionic-angular";
+  existingPackage.name = "@boundstate/ionic-angular";
   existingPackage.version = existingPackage.version + "-" + createTimestamp();
   delete existingPackage.dependencies;
   delete existingPackage.devDependencies;
